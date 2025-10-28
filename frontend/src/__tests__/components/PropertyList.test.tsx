@@ -1,6 +1,19 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PropertyList } from '@/components/PropertyList';
+import { propertyService } from '@/services/propertyService';
 import type { PropertyDto } from '@/types/property';
+
+// Mock the propertyService
+jest.mock('@/services/propertyService');
+const mockedPropertyService = propertyService as jest.Mocked<typeof propertyService>;
+
+// Mock PropertyFilters component
+jest.mock('@/components/PropertyFilters', () => ({
+  PropertyFilters: ({ onFilter }: { onFilter: (filters: any) => void }) => (
+    <div data-testid="property-filters">Filters</div>
+  ),
+}));
 
 // Mock PropertyCard component
 jest.mock('@/components/PropertyCard', () => ({
@@ -9,7 +22,24 @@ jest.mock('@/components/PropertyCard', () => ({
   ),
 }));
 
+const createWrapper = () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
+  return ({ children }: { children: React.ReactNode }) => (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+};
+
 describe('PropertyList', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   const mockProperties: PropertyDto[] = [
     {
       idProperty: '1',
@@ -29,50 +59,59 @@ describe('PropertyList', () => {
     },
   ];
 
-  it('renders all properties when provided', () => {
-    render(<PropertyList properties={mockProperties} />);
+  it('renders loading state initially', () => {
+    mockedPropertyService.getProperties.mockImplementation(
+      () => new Promise(() => {}) // Never resolves
+    );
+
+    render(<PropertyList />, { wrapper: createWrapper() });
+
+    expect(screen.getByText(/loading properties/i)).toBeInTheDocument();
+  });
+
+  it('renders properties when data is loaded', async () => {
+    mockedPropertyService.getProperties.mockResolvedValue(mockProperties);
+
+    render(<PropertyList />, { wrapper: createWrapper() });
+
+    await waitFor(() => {
+      expect(screen.getByText('Beautiful House')).toBeInTheDocument();
+      expect(screen.getByText('Modern Apartment')).toBeInTheDocument();
+    });
 
     const propertyCards = screen.getAllByTestId('property-card');
     expect(propertyCards).toHaveLength(2);
-    expect(screen.getByText('Beautiful House')).toBeInTheDocument();
-    expect(screen.getByText('Modern Apartment')).toBeInTheDocument();
   });
 
-  it('renders empty state when no properties provided', () => {
-    render(<PropertyList properties={[]} />);
+  it('renders empty state when no properties', async () => {
+    mockedPropertyService.getProperties.mockResolvedValue([]);
 
-    expect(screen.getByText(/no properties found/i)).toBeInTheDocument();
-    expect(screen.queryByTestId('property-card')).not.toBeInTheDocument();
+    render(<PropertyList />, { wrapper: createWrapper() });
+
+    await waitFor(() => {
+      expect(screen.getByText(/no properties found/i)).toBeInTheDocument();
+    });
   });
 
-  it('renders grid layout with correct classes', () => {
-    const { container } = render(<PropertyList properties={mockProperties} />);
+  it('renders error state when fetch fails', async () => {
+    mockedPropertyService.getProperties.mockRejectedValue(
+      new Error('Failed to fetch')
+    );
 
-    const grid = container.querySelector('.grid');
-    expect(grid).toBeInTheDocument();
+    render(<PropertyList />, { wrapper: createWrapper() });
+
+    await waitFor(() => {
+      expect(screen.getByText(/error loading properties/i)).toBeInTheDocument();
+    });
   });
 
-  it('handles single property correctly', () => {
-    const singleProperty = [mockProperties[0]];
-    render(<PropertyList properties={singleProperty} />);
+  it('renders property count', async () => {
+    mockedPropertyService.getProperties.mockResolvedValue(mockProperties);
 
-    const propertyCards = screen.getAllByTestId('property-card');
-    expect(propertyCards).toHaveLength(1);
-    expect(screen.getByText('Beautiful House')).toBeInTheDocument();
-  });
+    render(<PropertyList />, { wrapper: createWrapper() });
 
-  it('handles large number of properties', () => {
-    const manyProperties = Array.from({ length: 20 }, (_, i) => ({
-      idProperty: `${i + 1}`,
-      idOwner: `owner${i + 1}`,
-      name: `Property ${i + 1}`,
-      address: `${i + 1} Street`,
-      price: 100000 + i * 10000,
-    }));
-
-    render(<PropertyList properties={manyProperties} />);
-
-    const propertyCards = screen.getAllByTestId('property-card');
-    expect(propertyCards).toHaveLength(20);
+    await waitFor(() => {
+      expect(screen.getByText(/found 2 properties/i)).toBeInTheDocument();
+    });
   });
 });
