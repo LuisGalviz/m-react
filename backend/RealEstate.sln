@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Infrastructure", "src\RealEstate.Infrastructure\RealEstate.Infrastructure.csproj", "{A3333333-3333-3333-3333-333333333333}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.API", "src\RealEstate.API\RealEstate.API.csproj", "{A4444444-4444-4444-4444-444444444444}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1F3EED77-A72D-4E40-963E-4BC2889B5BAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Tests.Unit", "tests\RealEstate.Tests.Unit\RealEstate.Tests.Unit.csproj", "{61FE2D17-8C41-4EA0-9A60-89551AA706A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,5 +37,12 @@ Global
 		{A4444444-4444-4444-4444-444444444444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4444444-4444-4444-4444-444444444444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4444444-4444-4444-4444-444444444444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FE2D17-8C41-4EA0-9A60-89551AA706A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FE2D17-8C41-4EA0-9A60-89551AA706A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FE2D17-8C41-4EA0-9A60-89551AA706A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FE2D17-8C41-4EA0-9A60-89551AA706A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{61FE2D17-8C41-4EA0-9A60-89551AA706A7} = {1F3EED77-A72D-4E40-963E-4BC2889B5BAF}
 	EndGlobalSection
 EndGlobal
