@@ -1,0 +1,188 @@
+{
+  "owners": [
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789abc0001" },
+      "name": "John Smith",
+      "address": "456 Oak Avenue, New York, NY",
+      "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400",
+      "birthday": { "$date": "1975-03-15T00:00:00.000Z" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789abc0002" },
+      "name": "Maria Garcia",
+      "address": "789 Pine Street, Los Angeles, CA",
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
+      "birthday": { "$date": "1982-07-22T00:00:00.000Z" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789abc0003" },
+      "name": "Robert Johnson",
+      "address": "321 Elm Road, Chicago, IL",
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
+      "birthday": { "$date": "1968-11-10T00:00:00.000Z" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789abc0004" },
+      "name": "Emily Chen",
+      "address": "555 Maple Drive, San Francisco, CA",
+      "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400",
+      "birthday": { "$date": "1990-05-18T00:00:00.000Z" }
+    }
+  ],
+  "properties": [
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789def0001" },
+      "name": "Luxury Downtown Apartment",
+      "address": "123 Main Street, Manhattan, NY 10001",
+      "price": 850000,
+      "codeInternal": "LUX-001",
+      "year": 2020,
+      "idOwner": { "$oid": "65a1b2c3d4e5f6789abc0001" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789def0002" },
+      "name": "Beautiful Beach House",
+      "address": "456 Ocean Boulevard, Malibu, CA 90265",
+      "price": 2500000,
+      "codeInternal": "BCH-002",
+      "year": 2018,
+      "idOwner": { "$oid": "65a1b2c3d4e5f6789abc0002" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789def0003" },
+      "name": "Modern Family Home",
+      "address": "789 Suburban Lane, Austin, TX 78701",
+      "price": 450000,
+      "codeInternal": "FAM-003",
+      "year": 2019,
+      "idOwner": { "$oid": "65a1b2c3d4e5f6789abc0003" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789def0004" },
+      "name": "Cozy Mountain Cabin",
+      "address": "321 Forest Road, Aspen, CO 81611",
+      "price": 675000,
+      "codeInternal": "MTN-004",
+      "year": 2021,
+      "idOwner": { "$oid": "65a1b2c3d4e5f6789abc0004" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789def0005" },
+      "name": "Victorian Style House",
+      "address": "555 Heritage Street, Boston, MA 02108",
+      "price": 950000,
+      "codeInternal": "VIC-005",
+      "year": 1895,
+      "idOwner": { "$oid": "65a1b2c3d4e5f6789abc0001" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789def0006" },
+      "name": "Contemporary Loft",
+      "address": "222 Industrial Way, Seattle, WA 98101",
+      "price": 725000,
+      "codeInternal": "LOF-006",
+      "year": 2022,
+      "idOwner": { "$oid": "65a1b2c3d4e5f6789abc0002" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789def0007" },
+      "name": "Suburban Ranch House",
+      "address": "888 Meadow Lane, Phoenix, AZ 85001",
+      "price": 385000,
+      "codeInternal": "RAN-007",
+      "year": 2015,
+      "idOwner": { "$oid": "65a1b2c3d4e5f6789abc0003" }
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789def0008" },
+      "name": "Penthouse Suite",
+      "address": "999 Skyline Avenue, Miami, FL 33101",
+      "price": 1800000,
+      "codeInternal": "PEN-008",
+      "year": 2023,
+      "idOwner": { "$oid": "65a1b2c3d4e5f6789abc0004" }
+    }
+  ],
+  "propertyImages": [
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789img0001" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0001" },
+      "file": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+      "enabled": true
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789img0002" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0001" },
+      "file": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+      "enabled": true
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789img0003" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0002" },
+      "file": "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=800",
+      "enabled": true
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789img0004" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0003" },
+      "file": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800",
+      "enabled": true
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789img0005" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0004" },
+      "file": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800",
+      "enabled": true
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789img0006" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0005" },
+      "file": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800",
+      "enabled": true
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789img0007" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0006" },
+      "file": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+      "enabled": true
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789img0008" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0007" },
+      "file": "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800",
+      "enabled": true
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789img0009" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0008" },
+      "file": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800",
+      "enabled": true
+    }
+  ],
+  "propertyTraces": [
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789trc0001" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0001" },
+      "dateSale": { "$date": "2023-06-15T00:00:00.000Z" },
+      "name": "Initial Sale",
+      "value": 850000,
+      "tax": 42500
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789trc0002" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0002" },
+      "dateSale": { "$date": "2022-03-20T00:00:00.000Z" },
+      "name": "Property Transfer",
+      "value": 2500000,
+      "tax": 125000
+    },
+    {
+      "_id": { "$oid": "65a1b2c3d4e5f6789trc0003" },
+      "idProperty": { "$oid": "65a1b2c3d4e5f6789def0003" },
+      "dateSale": { "$date": "2023-01-10T00:00:00.000Z" },
+      "name": "New Construction Sale",
+      "value": 450000,
+      "tax": 22500
+    }
+  ]
+}

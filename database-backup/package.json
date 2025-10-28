@@ -1,0 +1,12 @@
+{
+  "name": "realestate-database-backup",
+  "version": "1.0.0",
+  "description": "MongoDB seed data and import utilities",
+  "scripts": {
+    "import": "node import-data.js",
+    "import:local": "MONGODB_URI=mongodb://localhost:27017 node import-data.js"
+  },
+  "dependencies": {
+    "mongodb": "^6.3.0"
+  }
+}
