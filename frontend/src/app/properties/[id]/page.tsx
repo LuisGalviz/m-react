@@ -53,8 +53,8 @@ export default function PropertyDetailPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="border-b bg-white shadow-sm">
+      {/* Back Navigation */}
+      <div className="border-b bg-white">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <button
             onClick={() => router.push('/')}
@@ -64,7 +64,7 @@ export default function PropertyDetailPage() {
             Back to Properties
           </button>
         </div>
-      </header>
+      </div>
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-3">
