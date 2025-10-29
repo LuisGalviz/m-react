@@ -13,10 +13,10 @@ This guide will walk you through setting up the Real Estate Application on your 
 
 ### Required Software
 
-1. **.NET 9 SDK**
+1. **.NET 8 SDK**
    - Download: https://dotnet.microsoft.com/download/dotnet/9.0
    - Verify installation: `dotnet --version`
-   - Required version: 9.0 or higher
+   - Required version: 8.0 or higher
 
 2. **MongoDB 7.0+**
    - Download: https://www.mongodb.com/try/download/community
