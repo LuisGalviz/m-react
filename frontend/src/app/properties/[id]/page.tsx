@@ -54,16 +54,14 @@ export default function PropertyDetailPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Back Navigation */}
-      <div className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <button
-            onClick={() => router.push('/')}
-            className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary-600"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Properties
-          </button>
-        </div>
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+        <button
+          onClick={() => router.push('/')}
+          className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary-600"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Properties
+        </button>
       </div>
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
